@@ -12,9 +12,9 @@
       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-	<context:component-scan base-package="np.com.carpool.serviceimpl" />
+	<!-- <context:component-scan base-package="np.com.carpool.serviceimpl" />
 	<context:component-scan base-package="np.com.carpool.domain" />
-	<context:component-scan base-package="np.com.carpool.repository" />
+	<context:component-scan base-package="np.com.carpool.repository" /> -->
 
 	<jpa:repositories base-package="np.com.carpool.repository"
 		query-lookup-strategy="create-if-not-found" />
@@ -51,6 +51,6 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<bean id="persistenceExceptionTranslationPostProcessor"
-		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	<!-- <bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" /> -->
 </beans>

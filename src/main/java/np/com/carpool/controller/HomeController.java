@@ -1,4 +1,4 @@
-package np.com.carpool;
+package np.com.carpool.controller;
 
 import np.com.carpool.domain.User;
 

@@ -1,4 +1,4 @@
-package np.com.carpool;
+package np.com.carpool.controller;
 
 import np.com.carpool.domain.User;
 import np.com.carpool.service.UserService;
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value="/register")
-public class SignUp {
+public class UserRegistrationController {
 	
 	@Autowired
 	UserService userService;
@@ -24,6 +24,7 @@ public class SignUp {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String postRegistered(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes){
+	
 		try{
 			userService.add(user);
 		}
