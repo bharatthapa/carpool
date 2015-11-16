@@ -1,10 +1,29 @@
 package np.com.carpool.domain;
 
+import java.io.Serializable;
 
-public class User {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity(name = "users")
+public class User implements Serializable{
 	
+	private static final long serialVersionUID = -8624607622331341029L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	@Column(name = "email")
 	private String email;
+	
+	@Column(name = "password")
 	private String password;
+	
+	@Transient
 	private String pwdRepeat;
 	
 	public void setEmail(String email) {
