@@ -8,7 +8,7 @@ public interface AbstractService<T, ID> {
 	
 	public void update(T t);
 	
-	public void remove(T t);
+	public void remove(ID id);
 	
 	public T findOne(ID id);
 	

@@ -4,36 +4,32 @@ import np.com.carpool.domain.User;
 import np.com.carpool.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping(value="/register")
+@RestController
 public class UserRegistrationController {
-	
+
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(method=RequestMethod.GET)
-	public String getRegistered(){		
-		return "registrationSuccess";
-	}
-	
-	@RequestMapping(method=RequestMethod.POST)
-	public String postRegistered(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes){
-	
-		try{
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public User postRegistered(User user) {
+
+		System.out.println("test");
+		try {
+			System.out.println("ID Before Saving "+user.getId());
 			userService.add(user);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
 		}
-		catch(Exception ex){
-			System.out.println(ex);
-		}
-		redirectAttributes.addFlashAttribute("user", user);
-		return "redirect:/register";
+		System.out.println("Username "+user.getUsername());
+		System.out.println("Password "+user.getPassword());
+		System.out.println("ID "+user.getId());
+		
+		return user;
+
 	}
-	
-	
+
 }
